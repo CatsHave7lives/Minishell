@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_echo.c                                          :+:      :+:    :+:   */
+/*   msh_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -33,7 +33,7 @@
 // 	return (check);
 // }
 
-// int	ms_echo(int ac, char **av)
+// int	msh_echo(int ac, char **av)
 // {
 // 	size_t	row;
 // 	bool	flag_n;
@@ -54,13 +54,13 @@
 // 	return (0);
 // }
 
-int	ms_echo(t_arg *arg)
+int	msh_echo(t_arg *arg)
 {
 	bool	flag_n;
 	bool	is_first;
 
 	flag_n = false;
-	while (arg && arg->str[0] == '-' && ms_arg_is_constant(arg->str, 'n', 1))
+	while (arg && arg->str[0] == '-' && msh_arg_is_constant(arg->str, 'n', 1))
 	{
 		flag_n = true;
 		arg = arg->next;

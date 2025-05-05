@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/04 04:44:28 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/05 04:41:16 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 # define FD_OP 1
 # define SUCCESS 0
@@ -29,8 +30,8 @@ typedef struct s_arg
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 
-int		ms_echo(t_arg *arg);
+int		msh_echo(t_arg *arg);
 
-bool	ms_arg_is_constant(char *str, char constant, size_t start);
+bool	msh_arg_is_constant(char *str, char constant, size_t start);
 
 #endif

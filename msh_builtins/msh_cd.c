@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ms_main.c                                          :+:      :+:    :+:   */
+/*   msh_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 14:32:51 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/03 22:57:05 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/05 03:08:58 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
+
+int msh_cd(t_arg *arg)
+{
+	char	pwd[PATH_MAX];
+
+	if (getcwd(pwd, PATH_MAX) == NULL)
+		msh_
+}
