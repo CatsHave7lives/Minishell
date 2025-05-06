@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 01:08:15 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/04 01:08:42 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/06 05:18:09 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_putstr(char *str)
 	len = 0;
 	while (str[len])
 		len++;
-	write(FD_OP, str, len);
+	write(STDOUT_FILENO, str, len);
 }

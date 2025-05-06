@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 20:49:10 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/04 01:14:53 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/05 04:45:39 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	write(FD_OP, &c, 1);
+	write(STDOUT_FILENO, &c, 1);
 }
