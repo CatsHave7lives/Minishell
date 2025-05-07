@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_cd.c                                           :+:      :+:    :+:   */
+/*   ft_str_is_mono.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:36:49 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/04 02:15:39 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 09:24:50 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#include "../minishell.h"
 
-int	msh_cd(t_list *av, t_list *env)
+bool	ft_str_is_mono(char *str, char constant, size_t start)
 {
-	t_cd	cd;
-
-	if (getcwd(cd.pwd, PATH_MAX) == NULL)
-		return (msh_perror("cd"), errno);
-	if (msh_cmd_is_one())// todo
-		return (cd_execute(av, cd.pwd));// todo
-	return (cd_error());// todo
-}
-
-static int	cd_execute(t_list *av, char *pwd)
-{
-	char	*arg;
-	
+	while (str[start])
+	{
+		if (str[start] != constant)
+			return (false);
+		start++;
+	}
+	return (true);
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_cd.c                                           :+:      :+:    :+:   */
+/*   msh_perror.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:36:49 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/05 20:58:31 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 12:09:55 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#include "msh_library.h"
 
-int	msh_cd(t_list *av, t_list *env)
+void	msh_perror(char *cmd_name)
 {
-	t_cd	cd;
-
-	if (getcwd(cd.pwd, PATH_MAX) == NULL)
-		return (msh_perror("cd"), errno);
-	if (msh_cmd_is_one())// todo
-		return (cd_execute(av, cd.pwd));// todo
-	return (cd_error());// todo
-}
-
-static int	cd_execute(t_list *av, char *pwd)
-{
-	char	*arg;
-	
+	ft_puterr("msh: ");
+	perror(cmd_name);
 }

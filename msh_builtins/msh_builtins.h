@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_arg_is_constant.c                              :+:      :+:    :+:   */
+/*   msh_builtins.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 02:15:39 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 06:15:47 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 12:24:56 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#ifndef MSH_BUILTINS_H
+# define MSH_BUILTINS_H
 
-bool	msh_arg_is_constant(char *str, char constant, size_t start)
+# include "minishell.h"
+
+typedef struct s_echo
 {
-	while (str[start])
-	{
-		if (str[start] != constant)
-			return (false);
-		start++;
-	}
-	return (true);
-}
+	bool	flag_n;
+	bool	is_first;
+}			t_echo;
+
+typedef struct s_cd
+{
+	char	pwd[PATH_MAX];
+}			t_cd;
+
+int		msh_echo(t_list *arg);
+
+#endif

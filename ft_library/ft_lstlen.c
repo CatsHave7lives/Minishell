@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_error.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 20:58:31 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 06:15:29 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 09:49:58 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 11:05:37 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "ft_library.h"
 
-void	msh_perror(char *cmd_name)
+int	ft_lstlen(t_list *lst)
 {
-	ft_puterr("msh: ");
-	perror(cmd_name);
+	int	len;
+
+	len = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
 }

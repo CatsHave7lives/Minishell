@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 06:14:06 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:16:59 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,18 @@
 # include <errno.h>
 # include <stdio.h>
 
-typedef struct s_arg
+typedef struct s_list
 {
 	char			*str;
-	struct s_arg	*next;
-}					t_arg;
+	struct s_list	*next;
+}					t_list;
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_puterr(char *str);
-
-int		msh_echo(t_arg *arg);
-
-bool	msh_arg_is_constant(char *str, char constant, size_t start);
-void	msh_perror(char *cmd_name);
+# include "ft_library.h"
+# include "msh_library.h"
+# include "msh_builtins.h"
 
 #endif
 /* Rules:
-- 
+- Funcitons made specifically for minishell should start with "msh_"
+- Functions that are useful outside minishell should start with "ft_"
 */

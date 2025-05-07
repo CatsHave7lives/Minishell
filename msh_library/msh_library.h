@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_cd.c                                           :+:      :+:    :+:   */
+/*   msh_library.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:36:49 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 12:09:59 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 12:20:19 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#ifndef MSH_LIBRARY_H
+# define MSH_LIBRARY_H
 
-int	msh_cd(t_list *av, t_list *env)
-{
-	t_cd	cd;
+# include "minishell.h"
 
-	if (getcwd(cd.pwd, PATH_MAX) == NULL)
-		return (msh_perror("cd"), errno);
-	if (msh_cmd_is_one())// todo
-		return (cd_execute(av, cd.pwd));// todo
-	return (cd_error());// todo
-}
+void	msh_perror(char *cmd_name);
 
-static int	cd_execute(t_list *av, char *pwd)
-{
-	char	*arg;
-	
-}
+#endif

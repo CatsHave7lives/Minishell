@@ -6,8 +6,13 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:32:51 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 06:15:07 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/07 06:43:49 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int main(int argc, char const **argv, char **env)
+{
+	return (0);
+}

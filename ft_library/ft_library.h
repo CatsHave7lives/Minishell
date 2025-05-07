@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_cd.c                                           :+:      :+:    :+:   */
+/*   ft_library.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:36:49 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 09:51:26 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/07 13:10:00 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#ifndef FT_LIBRARY_H
+# define FT_LIBRARY_H
 
-int	msh_cd(t_list *av, t_list *env)
-{
-	t_cd	cd;
+# include "minishell.h"
 
-	if (getcwd(cd.pwd, PATH_MAX) == NULL)
-		return (msh_perror("cd"), errno);
-	if (msh_cmd_is_one())// todo
-		return (cd_execute(av, cd.pwd));// todo
-	return (cd_error());// todo
-}
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_puterr(char *str);
+bool	ft_str_is_mono(char *str, char constant, size_t start);
+int		ft_lstlen(t_list *lst);
 
-static int	cd_execute(t_list *av, char *pwd)
-{
-	char	*arg;
-	
-}
+#endif
