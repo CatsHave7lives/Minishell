@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:36:49 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:02:29 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	msh_cd(t_list *av, t_list *env)
 {
 	t_cd	cd;
 
-	if (getcwd(cd.pwd, PATH_MAX) == NULL)
+	if (getcwd(NULL, 0) == NULL)
 		return (msh_perror("cd"), errno);
 	if (msh_cmd_is_one())// todo
 		return (cd_execute(av, cd.pwd));// todo

@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 12:24:56 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/16 16:56:36 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_echo
 {
 	bool	flag_n;
-	bool	is_first;
+	bool	is_not_first;
 }			t_echo;
 
 typedef struct s_cd

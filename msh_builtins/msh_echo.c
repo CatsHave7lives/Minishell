@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:01 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:53:46 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/16 17:15:48 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,24 @@ int	msh_echo(t_list *av)
 {
 	t_echo	echo;
 
-	if (!av)
-		return (EXIT_SUCCESS);
+	if (!av || !av->str)
+		return (ft_putchar('\n'), EXIT_SUCCESS);
 	echo.flag_n = false;
-	while (av && av->str[0] == '-' && ft_str_is_mono(av->str, 'n', 1))
+	while (av && av->str
+		&& av->str[0] == '-' && av->str[1] == 'n'
+		&& ft_str_is_mono(av->str, 'n', 1))
 	{
 		echo.flag_n = true;
 		av = av->next;
 	}
-	echo.is_first = true;
+	echo.is_not_first = false;
 	while (av)
 	{
-		if (!echo.is_first)
+		if (echo.is_not_first)
 			ft_putchar(' ');
-		ft_putstr(av->str);
-		echo.is_first = false;
+		if (av->str)
+			ft_putstr(av->str);
+		echo.is_not_first = true;
 		av = av->next;
 	}
 	if (!echo.flag_n)

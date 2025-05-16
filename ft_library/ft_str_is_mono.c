@@ -14,6 +14,8 @@
 
 bool	ft_str_is_mono(char *str, char constant, size_t start)
 {
+	if (!str)
+		return (false);
 	while (str[start])
 	{
 		if (str[start] != constant)
