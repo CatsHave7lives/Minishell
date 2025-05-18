@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 13:16:59 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/17 21:15:05 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 # include <errno.h>
 # include <stdio.h>
 
+# include "ft_library.h"
+# include "msh_library.h"
+# include "msh_builtins.h"
+
 typedef struct s_list
 {
 	char			*str;
 	struct s_list	*next;
 }					t_list;
-
-# include "ft_library.h"
-# include "msh_library.h"
-# include "msh_builtins.h"
 
 #endif
 /* Rules:

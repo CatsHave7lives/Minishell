@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:01 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/16 17:15:48 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:07:36 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	msh_echo(t_list *av)
 		return (ft_putchar('\n'), EXIT_SUCCESS);
 	echo.flag_n = false;
 	while (av && av->str
-		&& av->str[0] == '-' && av->str[1] == 'n'
+		&& !ft_strncmp(av->str, "-n", 2)
 		&& ft_str_is_mono(av->str, 'n', 1))
 	{
 		echo.flag_n = true;

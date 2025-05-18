@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_builtins.h                                     :+:      :+:    :+:   */
+/*   msh_get_from_env.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/17 14:10:13 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/18 15:38:41 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/18 15:44:53 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSH_BUILTINS_H
-# define MSH_BUILTINS_H
+#include "msh_library.h"
 
-# include "minishell.h"
-
-typedef struct s_echo
+t_list	msh_get_from_env(t_list env, char *str)
 {
-	bool	flag_n;
-	bool	is_not_first;
-}			t_echo;
-
-
-
-int		msh_echo(t_list *arg);
-
-#endif
+	
+}

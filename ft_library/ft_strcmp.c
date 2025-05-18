@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_builtins.h                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/17 14:10:13 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/18 15:46:35 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/18 15:47:32 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSH_BUILTINS_H
-# define MSH_BUILTINS_H
+#include "ft_library.h"
 
-# include "minishell.h"
-
-typedef struct s_echo
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	bool	flag_n;
-	bool	is_not_first;
-}			t_echo;
+	size_t	i;
 
-
-
-int		msh_echo(t_list *arg);
-
-#endif
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}
