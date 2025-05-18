@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:09:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 12:20:19 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/18 17:30:11 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "minishell.h"
 
 void	msh_perror(char *cmd_name);
+char	*msh_get_env_value(t_env *env, char *variable);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/17 21:15:05 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/05/18 17:04:50 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,15 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_env
+{
+	char			*variable;
+	char			*value;
+	struct s_env	*next;
+}					t_env;
+
 #endif
 /* Rules:
 - Funcitons made specifically for minishell should start with "msh_"
-- Functions that are useful outside minishell should start with "ft_"
+- Functions that are useful outside minishell should start with "ft_" 
 */
