@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_cmd_is_one.c                                   :+:      :+:    :+:   */
+/*   ft_puterr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 12:50:19 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/14 12:31:51 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/05 22:07:31 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/21 19:53:33 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_library.h"
+#include "lib_ft.h"
 
-bool	msh_cmd_is_one(void)
+void	ft_puterr(char *str)
 {
-	if (ft_lstlen(g_msh.))// start here
+	size_t	len;
+
+	if (!str)
+		return ;
+	len = 0;
+	while (str[len])
+		len++;
+	write(STDERR_FILENO, str, len);
 }

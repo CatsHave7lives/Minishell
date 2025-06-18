@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_library.h                                      :+:      :+:    :+:   */
+/*   gc_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 12:09:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/18 17:30:11 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/02 10:38:53 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/18 14:16:37 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSH_LIBRARY_H
-# define MSH_LIBRARY_H
+#include "lib_gc.h"
 
-# include "minishell.h"
+void	*gc_malloc(size_t size, t_gc **gc_head)
+{
+	t_gc	*node;
 
-void	msh_perror(char *cmd_name);
-char	*msh_get_env_value(t_env *env, char *variable);
-
-#endif
+	if (!gc_head)
+		return (NULL);
+	node = malloc(sizeof(t_gc));
+	if (!node)
+		return (NULL);
+	node->ptr = malloc(size);
+	if (!node->ptr)
+		return (free(node), NULL);
+	node->next = *gc_head;
+	*gc_head = node;
+	return (node->ptr);
+}

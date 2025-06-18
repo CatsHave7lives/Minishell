@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/18 17:04:50 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:39:23 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,28 @@
 # include <errno.h>
 # include <stdio.h>
 
-# include "ft_library.h"
-# include "msh_library.h"
+# include "lib_env.h"
+# include "lib_ft.h"
+# include "lib_gc.h"
+# include "lib_msh.h"
 # include "msh_builtins.h"
 
 typedef struct s_list
 {
 	char			*str;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 typedef struct s_env
 {
 	char			*variable;
 	char			*value;
 	struct s_env	*next;
-}					t_env;
+}	t_env;
 
 #endif
 /* Rules:
 - Funcitons made specifically for minishell should start with "msh_"
-- Functions that are useful outside minishell should start with "ft_" 
+- Garbage collector functions should start "gc_"
+- Other functions that are useful outside minishell should start with "ft_"
 */

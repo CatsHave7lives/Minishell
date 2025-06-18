@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   msh_malloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 16:53:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/18 15:47:37 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/15 06:54:22 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/15 06:55:04 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library.h"
+#include "lib_msh.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	msh_malloc(void **ptr, size_t size, t_gc **gc_head)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	*ptr = gc_malloc(size, gc_head);
+	if (!*ptr)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		gc_free(*gc_head);
+		perror("msh");
+		exit(2);
 	}
-	return (0);
 }

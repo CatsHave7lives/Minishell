@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlen.c                                        :+:      :+:    :+:   */
+/*   msh_cmd_is_one.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 09:49:58 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 11:05:37 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 12:50:19 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/21 20:31:37 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library.h"
+#include "lib_msh.h"
 
-int	ft_lstlen(t_list *lst)
+bool	msh_cmd_is_one(void)
 {
-	int	len;
-
-	len = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		len++;
-	}
-	return (len);
+	if (ft_lstlen(g_msh.))// start here
 }

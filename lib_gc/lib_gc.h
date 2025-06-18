@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_perror.c                                       :+:      :+:    :+:   */
+/*   lib_gc.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 20:58:31 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/07 12:09:55 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/02 10:07:59 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/02 10:35:49 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_library.h"
+#ifndef LIB_GC_H
+# define LIB_GC_H
 
-void	msh_perror(char *cmd_name)
+# include "minishell.h"
+
+typedef struct s_gc
 {
-	ft_puterr("msh: ");
-	perror(cmd_name);
-}
+	void		*ptr;
+	struct s_gc	*next;
+}	t_gc;
+
+#endif

@@ -39,3 +39,30 @@
 // 		ft_putchar('\n');
 // 	return (0);
 // }
+
+char *get_next_line(int fd)
+{
+    static char buffer[BUFFER_SIZE];
+    static int readlen;
+    static int pos;
+    char read_line[70000];
+    int i = 0;
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return NULL;
+    while (1)
+    {
+        if (pos >= readlen)
+        {
+            readlen = read(fd, buffer, BUFFER_SIZE);
+            pos = 0;
+            if (readlen <= 0)
+                break;
+        }
+        if (buffer[pos] == '\n' && i >= sizeof(read_line+1))
+        {
+            read_line[i] = '\n';
+            break;
+        }
+        read_line[i++] = buffer[pos++];
+    }
+}

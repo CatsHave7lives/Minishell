@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   lib_msh.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 20:49:10 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/05 04:45:39 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 12:09:59 by aessaber          #+#    #+#             */
+/*   Updated: 2025/05/21 19:58:05 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#ifndef LIB_MSH_H
+# define LIB_MSH_H
 
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
+# include "minishell.h"
+
+void	msh_perror(char *cmd_name);
+
+#endif

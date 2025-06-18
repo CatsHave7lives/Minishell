@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterr.c                                        :+:      :+:    :+:   */
+/*   msh_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 22:07:31 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 05:29:01 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/18 14:16:41 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/18 14:50:21 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "lib_msh.h"
 
-void	ft_puterr(char *str)
+void	*msh_strdup(const char *str, t_gc **gc_head)
 {
-	size_t	len;
+	size_t	str_len;
+	char	*dup;
 
-	if (!str)
-		return ;
-	len = 0;
-	while (str[len])
-		len++;
-	write(STDERR_FILENO, str, len);
+	str_len = ft_strlen(str);
+	msh_malloc(&dup, (sizeof(char) * (str_len +1)), gc_head);
+	ft_strcpy(dup, str);
+	return (dup);
 }

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   gc_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/18 15:46:35 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/18 15:47:32 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/02 13:20:14 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/15 06:55:12 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library.h"
+#include "lib_gc.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	gc_free(t_gc *gc_node)
 {
-	size_t	i;
+	t_gc	*gc_temp;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	while (gc_node)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		gc_temp = gc_node;
+		gc_node = gc_node->next;
+		free(gc_temp->ptr);
+		free(gc_temp);
 	}
-	return (0);
 }

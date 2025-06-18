@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   lib_ft.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 01:08:15 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 05:18:09 by aessaber         ###   ########.fr       */
+/*   Created: 2025/05/07 09:51:26 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/18 13:57:32 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#ifndef LIB_FT_H
+# define LIB_FT_H
 
-void	ft_putstr(char *str)
-{
-	size_t	len;
+# include "minishell.h"
 
-	if (!str)
-		return ;
-	len = 0;
-	while (str[len])
-		len++;
-	write(STDOUT_FILENO, str, len);
-}
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_puterr(char *str);
+bool	ft_str_is_mono(char *str, char constant, size_t start);
+int		ft_lstlen(t_list *lst);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strcpy(char *dst, const char *src);
+
+#endif
