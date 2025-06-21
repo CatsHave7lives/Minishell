@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_malloc.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 06:54:22 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:01:10 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/21 13:28:16 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/21 13:29:36 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_msh.h"
+#include "lib_ft.h"
 
-void	msh_malloc(void **ptr, size_t size, t_gc **gc)
+char	*ft_strdup(const char *s1)
 {
-	*ptr = gc_malloc(size, gc);
-	if (!*ptr)
-	{
-		gc_free(*gc);
-		perror("msh");
-		exit(2);
-	}
+	size_t	s1_len;
+	char	*dup;
+
+	s1_len = ft_strlen(s1);
+	dup = (char *)malloc(sizeof(char) * (s1_len + 1));
+	if (!dup)
+		return (NULL);
+	ft_strcpy(dup, s1);
+	return (dup);
 }

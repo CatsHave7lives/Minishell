@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/17 13:39:23 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/21 14:30:37 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <errno.h>
 # include <stdio.h>
 
+# include "lib_dbg.h"
 # include "lib_env.h"
 # include "lib_ft.h"
 # include "lib_gc.h"

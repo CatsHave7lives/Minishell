@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_malloc.c                                       :+:      :+:    :+:   */
+/*   lib_dbg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 06:54:22 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:01:10 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/21 11:28:28 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/21 12:05:31 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_msh.h"
+#ifndef LIB_DBG_H
+# define LIB_DBG_H
 
-void	msh_malloc(void **ptr, size_t size, t_gc **gc)
-{
-	*ptr = gc_malloc(size, gc);
-	if (!*ptr)
-	{
-		gc_free(*gc);
-		perror("msh");
-		exit(2);
-	}
-}
+# include "minishell.h"
+
+void	dbg_nullarg(const char *function_name);
+
+#endif

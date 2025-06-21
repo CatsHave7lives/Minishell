@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_malloc.c                                       :+:      :+:    :+:   */
+/*   dbg_nullarg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 06:54:22 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:01:10 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/21 11:17:56 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/21 13:12:44 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_msh.h"
+#include "lib_dbg.h"
 
-void	msh_malloc(void **ptr, size_t size, t_gc **gc)
+void	dbg_nullarg(const char *function_name)
 {
-	*ptr = gc_malloc(size, gc);
-	if (!*ptr)
-	{
-		gc_free(*gc);
-		perror("msh");
-		exit(2);
-	}
+	ft_puterr("DBG: ");
+	ft_puterr(function_name);
+	ft_puterr(": missing argument(s).\n");
 }
