@@ -6,20 +6,20 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:46:58 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/02 17:06:46 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:49:40 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_env.h"
 
-t_env	*env_add_node(t_env **env, t_gc **gc)
+t_env	*env_add_node(t_env **env, char *variable, char *value)
 {
 	t_env	*env_new;
 	t_env	*env_cur;
 
-	if (!env || !gc)
+	if (!env)
 		return (NULL);
-	msh_malloc((void **)&env_new, sizeof(t_env), gc);
+	msh_malloc((void **)&env_new, sizeof(t_env));
 	env_new->variable = NULL;
 	env_new->value = NULL;
 	env_new->next = NULL;

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_malloc.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 06:54:22 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:01:10 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/23 10:12:28 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/23 10:12:56 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_msh.h"
+#include "lib_ft.h"
 
-void	msh_malloc(void **ptr, size_t size, t_gc **gc)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	*ptr = gc_malloc(size, gc);
-	if (!*ptr)
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)b;
+	i = 0;
+	while (i < len)
 	{
-		gc_free(*gc);
-		perror("msh");
-		exit(2);
+		ptr[i] = (unsigned char)c;
+		i++;
 	}
+	return (b);
 }

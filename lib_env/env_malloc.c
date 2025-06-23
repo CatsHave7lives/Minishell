@@ -6,19 +6,13 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 14:10:15 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:51:21 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:39:45 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_env.h"
 
-static t_env	*env_content(t_env *env_node, char *variable, char *value)
-{
-	env_node->variable = ft_strdup(variable);
-	if (!env_node->variable) // start here
-}
-
-t_env	*env_malloc(t_env **env, char *variable, char *value)
+t_env	*env_malloc(t_env **env)
 {
 	t_env	*env_node;
 
@@ -41,5 +35,6 @@ t_env	*env_malloc(t_env **env, char *variable, char *value)
 			return (NULL);
 		env_node = env_node->next;
 	}
-	return (env_content(env_node, variable, value));
+	ft_memset(env_node, 0, sizeof(t_env));
+	return (env_node);
 }

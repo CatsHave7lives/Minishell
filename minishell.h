@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/21 14:30:37 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:15:22 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stddef.h>
 # include <limits.h>
 # include <errno.h>
 # include <stdio.h>
@@ -32,13 +33,6 @@ typedef struct s_list
 	char			*str;
 	struct s_list	*next;
 }	t_list;
-
-typedef struct s_env
-{
-	char			*variable;
-	char			*value;
-	struct s_env	*next;
-}	t_env;
 
 #endif
 /* Rules:

@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/18 12:03:51 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/23 17:55:19 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	msh_cd(t_list *av, t_env **env)
 	return (cd_error());// todo
 }
 
-int	cd_home(t_cd *cd, t_env **env)
+int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 {
 	t_env	*env_node_home;
 
@@ -52,8 +52,8 @@ int	cd_home(t_cd *cd, t_env **env)
 	cd->new_pwd = getcwd(NULL, 0);
 	if (!cd->new_pwd)
 		return (msh_perror("cd"), free(cd->old_pwd), EXIT_FAILURE);
-	if (env_set_node_value(env, "OLDPWD", cd->old_pwd) == EXIT_FAILURE
-		|| env_set_node_value(env, "PWD", cd->new_pwd) == EXIT_FAILURE)
+	if (env_set_node(env, "OLDPWD", cd->old_pwd, gc) == EXIT_FAILURE
+		|| env_set_node(env, "PWD", cd->new_pwd, gc) == EXIT_FAILURE)
 		return (free(cd->old_pwd), free(cd->new_pwd), EXIT_FAILURE);
 	return (free(cd->old_pwd), free(cd->new_pwd), EXIT_SUCCESS);
 }
