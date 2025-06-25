@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_gc.h                                           :+:      :+:    :+:   */
+/*   msh_free_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 10:07:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/24 18:21:35 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/24 11:29:05 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/24 12:00:40 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_GC_H
-# define LIB_GC_H
+#include "lib_msh.h"
 
-# include "minishell.h"
-
-typedef struct s_gc
+void	msh_free_null(char **str)
 {
-	void		*ptr;
-	struct s_gc	*next;
-}	t_gc;
-
-void	*gc_malloc(size_t size, t_gc **gc_head);
-void	gc_free(t_gc *gc_node);
-
-#endif
+	if (str && *str)
+	{
+		free(*str);
+		*str = NULL;
+	}
+}

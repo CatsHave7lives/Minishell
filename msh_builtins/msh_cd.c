@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/23 17:55:19 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/24 12:13:41 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	msh_cd(t_list *av, t_env **env)
 int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 {
 	t_env	*env_node_home;
+	int		status;
 
+	status = EXIT_SUCCESS;
 	cd->old_pwd = getcwd(NULL, 0);
 	if (!cd->old_pwd)
 		return (msh_perror("cd"), EXIT_FAILURE);
@@ -45,17 +47,19 @@ int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 	if (!env_node_home || !env_node_home->value)
 	{
 		ft_puterr("msh: cd: HOME not set\n");
-		return (free(cd->old_pwd), EXIT_FAILURE);
+		return (msh_free_null(&cd->old_pwd), EXIT_FAILURE);
 	}
 	if (chdir(env_node_home->value) == -1)
-		return (msh_perror("cd"), free(cd->old_pwd), EXIT_FAILURE);
+		return (msh_perror("cd"), msh_free_null(&cd->old_pwd), EXIT_FAILURE);
 	cd->new_pwd = getcwd(NULL, 0);
 	if (!cd->new_pwd)
-		return (msh_perror("cd"), free(cd->old_pwd), EXIT_FAILURE);
-	if (env_set_node(env, "OLDPWD", cd->old_pwd, gc) == EXIT_FAILURE
-		|| env_set_node(env, "PWD", cd->new_pwd, gc) == EXIT_FAILURE)
-		return (free(cd->old_pwd), free(cd->new_pwd), EXIT_FAILURE);
-	return (free(cd->old_pwd), free(cd->new_pwd), EXIT_SUCCESS);
+		return (msh_perror("cd"), msh_free_null(&cd->old_pwd), EXIT_FAILURE);
+	if (env_set_node(env, "OLDPWD", cd->old_pwd, gc) == NULL
+		|| env_set_node(env, "PWD", cd->new_pwd, gc) == NULL)
+		status = EXIT_FAILURE;
+	msh_free_null(&cd->old_pwd);
+	msh_free_null(&cd->new_pwd);
+	return (status);
 }
 
 int	cd_execute(t_list *av, char *pwd)

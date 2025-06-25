@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 09:51:26 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/22 10:00:47 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:33:28 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ typedef struct s_env
 }	t_env;
 
 t_env	*env_get_node(t_env **env, char *target_variable);
-int		env_set_node_value(t_env **env, char *target_variable, char *new_value);
-t_env	*env_add_node(t_env **env);
+t_env	*env_malloc(t_env **env);
+t_env	*env_fill_node(t_env *env_node, char *variable, char *value);
+t_env	*env_set_node(
+			t_env **env, char *target_var, char *new_value, t_gc **gc);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 01:58:46 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/23 17:45:59 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:02:23 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_env	*env_fill_node(t_env *env_node, char *variable, char *value)
 {
 	if (!env_node || !variable || !value)
-		return (NULL);
+		return (dbg_nullarg(__func__), NULL);
 	env_node->variable = ft_strdup(variable);
 	if (!env_node->variable)
 		return (NULL);

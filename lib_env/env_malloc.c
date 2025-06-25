@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 14:10:15 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/23 17:39:45 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:16:14 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_env	*env_malloc(t_env **env)
 	t_env	*env_node;
 
 	if (!env)
-		return (NULL);
+		return (dbg_nullarg(__func__), NULL);
 	if (!*env)
 	{
 		*env = malloc(sizeof(t_env));
