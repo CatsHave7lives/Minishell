@@ -6,29 +6,23 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/24 12:13:41 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:45:45 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "msh_builtins.h"
 
-typedef struct s_cd //msh_builtins.h
-{
-	char	*old_pwd;
-	char	*new_pwd;
-}			t_cd;
-
-int	msh_cd(t_list *av, t_env **env)
+int	msh_cd(t_list *av, t_env **env, t_gc **gc)
 {
 	t_cd	cd;
 
 	if (!av || !av->str || !av->str[0])
-		return (cd_home(&cd, env));
+		return (cd_home(&cd, env, gc));
 	cd.old_pwd = getcwd(NULL, 0);
 	if (!cd.old_pwd)
 		return (msh_perror("cd"), EXIT_FAILURE);
 	// code for cd <arg>
-	return (free(cd.old_pwd), EXIT_FAILURE); 
+	return (msh_free_null(&cd.old_pwd), EXIT_FAILURE);
 	if (msh_cmd_is_one())// todo
 		return (cd_execute(av, cd.old_pwd));// todo
 	return (cd_error());// todo
@@ -49,7 +43,7 @@ int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 		ft_puterr("msh: cd: HOME not set\n");
 		return (msh_free_null(&cd->old_pwd), EXIT_FAILURE);
 	}
-	if (chdir(env_node_home->value) == -1)
+	if ((env_node_home->value) == -1)
 		return (msh_perror("cd"), msh_free_null(&cd->old_pwd), EXIT_FAILURE);
 	cd->new_pwd = getcwd(NULL, 0);
 	if (!cd->new_pwd)
