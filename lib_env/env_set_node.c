@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:38:41 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/23 17:41:23 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/28 15:08:35 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_env	*env_set_node(t_env **env, char *target_var, char *new_value, t_gc **gc)
 	t_env	*env_node;
 	char	*og_value;
 
-	if (!env || !target_var || !new_value || !gc)
+	if (!env || !target_var || !gc)
 		return (dbg_nullarg(__func__), NULL);
 	env_node = env_get_node(env, target_var);
 	if (env_node)

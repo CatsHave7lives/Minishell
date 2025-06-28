@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_builtins.h                                     :+:      :+:    :+:   */
+/*   env_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/28 13:27:52 by aessaber         ###   ########.fr       */
+/*   Created: 2025/06/28 10:58:44 by aessaber          #+#    #+#             */
+/*   Updated: 2025/06/28 11:01:56 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSH_BUILTINS_H
-# define MSH_BUILTINS_H
+#include "lib_env.h"
 
-# include "minishell.h"
-
-typedef struct s_echo
+void	env_free(t_env *env_node)
 {
-	bool	flag_n;
-	bool	is_not_first;
-}	t_echo;
+	t_env	*env_temp;
 
-typedef struct s_cd
-{
-	char	*old_pwd;
-	char	*new_pwd;
-}	t_cd;
-
-int	msh_cd(t_list *av, t_env **env, t_gc **gc);
-int	msh_echo(t_list *arg);
-int	msh_env(t_env *env);
-
-#endif
+	while (env_node)
+	{
+		env_temp = env_node;
+		env_node = env_node->next;
+		free(env_temp->value);
+		free(env_temp->variable);
+		free(env_temp);
+	}
+}

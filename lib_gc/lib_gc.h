@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:07:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/24 18:21:35 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/28 13:26:59 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct s_gc
 	struct s_gc	*next;
 }	t_gc;
 
-void	*gc_malloc(size_t size, t_gc **gc_head);
 void	gc_free(t_gc *gc_node);
+void	*gc_getcwd(t_gc **gc_head);
+void	*gc_malloc(size_t size, t_gc **gc_head);
 
 #endif
