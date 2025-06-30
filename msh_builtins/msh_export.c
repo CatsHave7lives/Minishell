@@ -6,8 +6,13 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:30 by aessaber          #+#    #+#             */
-/*   Updated: 2025/05/06 06:16:46 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/29 14:43:32 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "msh_builtins.h"
+
+int	msh_export(t_gc **gc)
+{
+	
+}

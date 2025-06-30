@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/27 19:44:19 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/06/29 15:20:40 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 	return (status);
 }
 
-static int	cd_update_env(t_list *av, t_cd *cd, t_env **env, t_gc **gc)
+static int	cd_update_env(t_list *arg, t_cd *cd, t_env **env, t_gc **gc)
 {
 	int		status;
 
 	status = EXIT_SUCCESS;
-	if (chdir(av->str) == -1)
+	if (chdir(arg->str) == -1)
 		return (msh_perror("cd"), msh_free_null(&cd->old_pwd), EXIT_FAILURE);
 	cd->new_pwd = gc_getcwd(gc);
 	if (!cd->new_pwd)
@@ -55,17 +55,17 @@ static int	cd_update_env(t_list *av, t_cd *cd, t_env **env, t_gc **gc)
 	return (status);
 }
 
-int	msh_cd(t_list *av, t_env **env, t_gc **gc)
+int	msh_cd(t_list *arg, t_env **env, t_gc **gc)
 {
 	t_cd	cd;
 
 	cd.old_pwd = gc_getcwd(gc);
 	if (!cd.old_pwd)
 		return (msh_perror("cd"), EXIT_FAILURE);
-	if (!av || !av->str)
+	if (!arg || !arg->str)
 		return (cd_home(&cd, env, gc));
-	if (!av->str[0])
+	if (!arg->str[0])
 		return (msh_free_null(&cd.old_pwd), EXIT_SUCCESS);
 	else
-		return (cd_update_env(av, &cd, env, gc));
+		return (cd_update_env(arg, &cd, env, gc));
 }
