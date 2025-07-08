@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 11:18:56 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/23 16:36:27 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:47:03 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	*msh_null_guard(void *ptr, t_env **env, t_gc **gc)
 {
 	if (!ptr)
 	{
-		env_free(*env);
-		gc_free(*gc);
+		env_free(env);
+		gc_free(gc);
 		perror("msh");
 		exit(2);
 	}

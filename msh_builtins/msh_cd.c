@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/29 15:20:40 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:00:48 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	msh_cd(t_list *arg, t_env **env, t_gc **gc)
 {
 	t_cd	cd;
 
+	if (!arg || !env || !gc)
+		return (dbg_nullarg(__func__), EXIT_FAILURE);
 	cd.old_pwd = gc_getcwd(gc);
 	if (!cd.old_pwd)
 		return (msh_perror("cd"), EXIT_FAILURE);

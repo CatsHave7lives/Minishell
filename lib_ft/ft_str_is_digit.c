@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_exit.c                                         :+:      :+:    :+:   */
+/*   ft_str_is_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:28 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/08 06:06:00 by aessaber         ###   ########.fr       */
+/*   Created: 2025/07/07 21:45:33 by aessaber          #+#    #+#             */
+/*   Updated: 2025/07/08 06:04:25 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#include "lib_ft.h"
 
-static void	exit_program(int status, t_env **env, t_gc **gc)
+static int	static_isdigit(int c)
 {
-	env_free(env);
-	gc_free(gc);
-	exit(status);
+	return (c >= '0' && c <= '9');
 }
 
-int	msh_exit(t_list *arg, int status, t_env **env, t_gc **gc)
+bool	ft_str_is_digit(char *str)
 {
-	if (!env || !gc)
-		return (dbg_nullarg(__func__), EXIT_FAILURE);
-	if (!arg || !arg->str)
-		return (exit_program(status, env, gc), EXIT_SUCCESS);
-	if (ft_str_is_digit(arg->str))
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
+		return (false);
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	if (str[i])
+		return (false);
+	return (true);
 }
