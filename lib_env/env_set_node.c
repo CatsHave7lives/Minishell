@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 15:38:41 by aessaber          #+#    #+#             */
-/*   Updated: 2025/06/28 15:08:35 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/09 06:16:18 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_env	*env_set_node(t_env **env, char *target_var, char *new_value, t_gc **gc)
 	{
 		og_value = env_node->value;
 		env_node->value = msh_null_guard(ft_strdup(new_value), env, gc);
-		return (free(og_value), env_node);
+		ft_free((void **)&og_value);
+		return (env_node);
 	}
 	else
 	{

@@ -6,20 +6,21 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:42 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/03 14:09:55 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/09 01:07:54 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include <stdbool.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <limits.h>
 # include <errno.h>
+# include <limits.h>
+# include <stdbool.h>
+# include <stddef.h>
+# include <stdint.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # include "lib_dbg.h"
 # include "lib_env.h"

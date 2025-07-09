@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 10:58:44 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/03 16:08:55 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/09 05:06:45 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ void	env_free(t_env **env_head)
 	{
 		env_temp = env_node;
 		env_node = env_node->next;
-		free(env_temp->value);
-		free(env_temp->variable);
-		free(env_temp);
+		ft_free((void **)&env_temp->value);
+		ft_free((void **)&env_temp->variable);
+		ft_free((void **)&env_temp);
 	}
 	*env_head = NULL;
-	env_node = NULL;
-	env_temp = NULL;
 }
