@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:28 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/09 04:23:22 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/10 11:16:20 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@ static void	exit_program(int status, t_env **env, t_gc **gc)
 	exit(status);
 }
 
-int	msh_exit(t_list *arg, int status, t_env **env, t_gc **gc)
+int	msh_exit(const char **arg, int status, t_env **env, t_gc **gc)
 {
 	uint8_t	byte;
 
 	if (!env || !gc)
 		return (dbg_nullarg(__func__), EXIT_FAILURE);
-	if (!arg || !arg->str)
+	if (!arg || !arg[1])
 	{
 		ft_putstr("exit\n");
 		exit_program(status, env, gc);
 	}
-	if (!ft_str_is_number(arg->str))
+	if (!ft_str_is_num(arg[1]))
 	{
 		ft_puterr("msh: exit: ");
-		ft_puterr(arg->str);
+		ft_puterr(arg[1]);
 		ft_puterr(": numeric argument required\n");
 		exit_program(UINT8_MAX, env, gc);
 	}
-	if (arg->next)
+	if (arg[2])
 	{
 		ft_puterr("msh: exit: too many arguments\n");
 		return (EXIT_FAILURE);
 	}
-	byte = ft_atoi(arg->str);
+	byte = (uint8_t)ft_atoi(arg[1]);
 	ft_putstr("exit\n");
 	exit_program(byte, env, gc);
 }

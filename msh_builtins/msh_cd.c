@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:42:04 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/09 06:23:32 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/10 08:37:47 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ static int	cd_home(t_cd *cd, t_env **env, t_gc **gc)
 	return (status);
 }
 
-static int	cd_update_env(t_list *arg, t_cd *cd, t_env **env, t_gc **gc)
+static int	cd_update_env(const char **arg, t_cd *cd, t_env **env, t_gc **gc)
 {
 	int		status;
 
 	status = EXIT_SUCCESS;
-	if (chdir(arg->str) == -1)
+	if (chdir(arg[1]) == -1)
 	{
 		msh_perror("cd");
 		ft_free((void **)&cd->old_pwd);
@@ -64,7 +64,7 @@ static int	cd_update_env(t_list *arg, t_cd *cd, t_env **env, t_gc **gc)
 	return (status);
 }
 
-int	msh_cd(t_list *arg, t_env **env, t_gc **gc)
+int	msh_cd(const char **arg, t_env **env, t_gc **gc)
 {
 	t_cd	cd;
 
@@ -76,9 +76,9 @@ int	msh_cd(t_list *arg, t_env **env, t_gc **gc)
 		msh_perror("cd");
 		return (EXIT_FAILURE);
 	}
-	if (!arg || !arg->str)
+	if (!arg || !arg[1])
 		return (cd_home(&cd, env, gc));
-	if (!arg->str[0])
+	if (!arg[1][0])
 	{
 		ft_free((void **)&cd.old_pwd);
 		return (EXIT_SUCCESS);

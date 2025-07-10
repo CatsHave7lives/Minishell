@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_export.c                                       :+:      :+:    :+:   */
+/*   env_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 21:42:30 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/10 12:04:55 by aessaber         ###   ########.fr       */
+/*   Created: 2025/07/10 12:05:29 by aessaber          #+#    #+#             */
+/*   Updated: 2025/07/10 12:19:17 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "msh_builtins.h"
+#include "lib_env.h"
 
-static void	export_all(t_env *env)
+t_env	*env_sort(t_env *env)
 {
-	t_env	*env_sorted;
+	t_env	env_sorted;
 
-	env_sorted = env_sort(env);
-}
-
-int	msh_export(const char *arg, t_env **env, t_gc **gc)
-{
-	if (!arg[1])
-		export_all(*env);
+	if (!env)
+		return (dbg_nullarg(__func__), NULL);
+	env_sorted = env_lstdup(env);
+	if ()
 }
