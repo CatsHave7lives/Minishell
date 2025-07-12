@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_msh.h                                          :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 12:09:59 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/11 08:19:14 by aessaber         ###   ########.fr       */
+/*   Created: 2025/07/12 15:31:26 by aessaber          #+#    #+#             */
+/*   Updated: 2025/07/12 15:39:59 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_MSH_H
-# define LIB_MSH_H
+#include "lib_ft.h"
 
-# include "minishell.h"
-
-void	*msh_null_guard(void *ptr, t_env **env, t_gc **gc);
-void	msh_perror(char *cmd_name);
-void	msh_quit(int status, t_env **env, t_gc **gc);
-
-#endif
+int	ft_isalnum(int c)
+{
+	return ((c >= '0' && c <= '9')
+		|| (c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z'));
+}

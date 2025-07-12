@@ -6,7 +6,7 @@
 /*   By: aessaber <aessaber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:03:25 by aessaber          #+#    #+#             */
-/*   Updated: 2025/07/10 09:04:51 by aessaber         ###   ########.fr       */
+/*   Updated: 2025/07/12 08:26:00 by aessaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,28 @@
 
 typedef struct s_echo
 {
-	int		row;
+	int		arg;
 	bool	flag_n;
 	bool	is_not_first;
 }	t_echo;
 
 typedef struct s_cd
 {
+	int		arg;
 	char	*old_pwd;
 	char	*new_pwd;
 }	t_cd;
+
+typedef struct s_exit
+{
+	int		arg;
+	uint8_t	byte;
+}	t_exit;
+
+typedef struct s_export
+{
+	int		arg;
+}	t_export;
 
 int	msh_cd(const char **arg, t_env **env, t_gc **gc);
 int	msh_echo(const char **arg);
